@@ -1,0 +1,20 @@
+<div class="product-item">
+  <h3>{{ product.typeProduct }}</h3>
+  <p><strong>Производитель:</strong> {{ product.vendor }}</p>
+  <p><strong>Модель:</strong> {{ product.model }}</p>
+  <p><strong>Цена:</strong> {{ product.price }} $</p>
+  <p><strong>Количество:</strong> {{ product.count }}</p>
+
+  <!-- Кнопка для отображения/скрытия изображения товара -->
+  <button (click)="toggleImage()">
+    {{ showImage ? 'Скрыть изображение' : 'Показать изображение' }}
+  </button>
+
+  <!-- Изображение товара, показывается, если showImage true -->
+  <div *ngIf="showImage">
+    <img [src]="product.img" alt="{{ product.typeProduct }}" />
+  </div>
+
+  <!-- Ссылка для показа описания товара в alert -->
+  <a href="#" (click)="showDescription(product.description)">Описание...</a>
+</div>
